@@ -1,5 +1,6 @@
 package statistics;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -50,6 +51,18 @@ public class StatisticsCalculator {
 
     public double getStandardDeviation(){
         return 0.0;
+    }
+
+
+    public List<Double> readListFile(){
+        //TODO Handle this exception properly
+        ListFileReader reader = null;
+        try {
+            reader = new ListFileReader(filename);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return reader.readFile();
     }
 
     //etc
