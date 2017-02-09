@@ -1,16 +1,22 @@
 package statistics;
 
 import java.io.FileNotFoundException;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by weiserd on 2/8/2017.
  */
 public class StatisticsCalculator {
-    private String filename;
+    private final List<Double> data;
 
-    public StatisticsCalculator(String filename){
-        this.filename = filename;
+    public StatisticsCalculator(String filename) throws FileNotFoundException {
+        this(readListFile(filename));
+    }
+
+    public StatisticsCalculator(List<Double> data){
+        Collections.sort(data);
+        this.data = data;
     }
 
     public double getMean(){
@@ -53,15 +59,10 @@ public class StatisticsCalculator {
         return 0.0;
     }
 
-
-    public List<Double> readListFile(){
+    public static List<Double> readListFile(String filename) throws FileNotFoundException {
         //TODO Handle this exception properly
-        ListFileReader reader = null;
-        try {
-            reader = new ListFileReader(filename);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        //TODONE: Good enough
+        ListFileReader reader = new ListFileReader(filename);
         return reader.readFile();
     }
 
