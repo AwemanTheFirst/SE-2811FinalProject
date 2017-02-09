@@ -1,13 +1,32 @@
 package statistics;
 
+import java.util.List;
+
 /**
+ * @author Ryan Weise
  * Created by weiserd on 2/8/2017.
  */
 public class StatisticsClient {
-    public final String NUMBER_FILE = "numbers.txt";
+    public static final String NUMBER_FILE = "numbers.txt";
 
     public static void main(String[] args) {
-        //StatisticCalculator calculator = new StatisticCalculator(NUMBER_FILE);
-        //Do stuff with it
+        StatisticsCalculator calculator = new StatisticsCalculator(NUMBER_FILE);
+        System.out.println("Mean: " + calculator.getMean());
+        System.out.println("Standard Deviation: " + calculator.getStandardDeviation());
+        System.out.println("Five Number Summary: " + calculator.getMin() + " " + calculator
+                .getLowerQuartile() + " " + calculator.getMedian() + " " + calculator
+                .getUpperQuartile() + " " + calculator.getMax());
+        System.out.println("Median: " + calculator.getMedian());
+        System.out.println("Interquartile Range: " + calculator.getInterquartileRange());
+        System.out.println("Range: " + calculator.getRange());
+        System.out.print("Mode: ");
+        List<Double> mode = calculator.getMode();
+        for (int i = 0; i < mode.size(); i++) {
+            System.out.print(mode.get(i));
+            if (i < mode.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
     }
 }
