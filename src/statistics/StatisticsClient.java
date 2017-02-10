@@ -4,13 +4,20 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
- * @author Ryan Weise
+ * This class functions as a testing client that uses each method of the StatisticsCalculator.
+ *
+ * @author weiserd
  * Created by weiserd on 2/8/2017.
  */
 public class StatisticsClient {
-    public static final String NUMBER_FILE = "numbers.txt";
+    public static final String NUMBER_FILE = "numbers.txt"; // The data file
 
-    public static void main(String[] args) {
+    /**
+     * Main method for testing.
+     *
+     * @param ignored ignored
+     */
+    public static void main(String[] ignored) {
         try {
             StatisticsCalculator calculator = new StatisticsCalculator(NUMBER_FILE);
             System.out.println("Mean: " + calculator.getMean());
