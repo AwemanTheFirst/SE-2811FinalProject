@@ -74,15 +74,15 @@ public class StatisticsCalculator {
     }
 
     public double getUpperQuartile(){
-        return 0.0;
+        return UpperQuartileCalculator.calculateUpperQuartile(data);
     }
 
     public double getLowerQuartile(){
-        return 0.0;
+        return LowerQuartileCalculator.calculateLowerQuartile(data);
     }
 
     public double getInterquartileRange(){
-        return 0.0;
+        return IQRCalculator.calculateIQR(data);
     }
 
     public double getRange(){
