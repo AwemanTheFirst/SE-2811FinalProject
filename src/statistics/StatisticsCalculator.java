@@ -1,5 +1,7 @@
 package statistics;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.List;
@@ -65,12 +67,28 @@ public class StatisticsCalculator {
         return MedianCalculator.calculateMedian(data);
     }
 
+    /**
+     * @author sullivan-bormannaj
+     * @return
+     */
     public double getMax(){
-        return 0.0;
+        return data.get(data.size()-1);
     }
 
+    /**
+     * @author sullivan-bormannaj
+     * @return
+     */
     public double getMin(){
-        return 0.0;
+        return data.get(0);
+    }
+
+    /**
+     * @author sullivan-bormannaj
+     * @return
+     */
+    public double getRange(){
+        return getMax() - getMin();
     }
 
     public double getUpperQuartile(){
@@ -85,21 +103,27 @@ public class StatisticsCalculator {
         return 0.0;
     }
 
-    public double getRange(){
-        return 0.0;
-    }
-
+    /**
+     * @author sullivan-bormannaj
+     * @return
+     */
     public List<Double> getMode(){
-        return null;
+        return ModeCalculator.calculateMode(data);
     }
 
+    /**
+     * @author sullivan-bormannaj
+     * @return
+     */
     public double getStandardDeviation(){
-        return 0.0;
+        return StandardDeviationCalculator.calculateStandardDeviation(getMean(), data);
     }
 
-    public static List<Double> readListFile(String filename) throws FileNotFoundException {
-        //TODO Handle this exception properly
-        //TODONE: Good enough
+    /**
+     * @author sullivan-bormannaj
+     * @return
+     */
+    public static List<Double> readListFile(String filename) throws FileNotFoundException, IllegalArgumentException{
         ListFileReader reader = new ListFileReader(filename);
         return reader.readFile();
     }
@@ -108,4 +132,5 @@ public class StatisticsCalculator {
 
     //This should use possibly an external class for file reading and other external classes for all
     //of the necessary statistical functions. The goal is to exemplify the facade pattern.
+
 }

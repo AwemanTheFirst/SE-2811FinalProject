@@ -42,6 +42,8 @@ public class StatisticsClient {
             }
         } catch (FileNotFoundException e){
             System.out.println("The desired file at \"" + NUMBER_FILE + "\" could not be found.");
+        } catch (IllegalArgumentException e){
+            System.out.println("Cannot analyze a list of 0 numbers");
         }
     }
 }
