@@ -20,11 +20,11 @@ public class StatisticsCalculator {
     }
 
     public double getMean(){
-        return 0.0;
+        return MeanCalculator.calculateMean(data);
     }
 
     public double getMedian(){
-        return 0.0;
+        return MedianCalculator.calculateMedian(data);
     }
 
     public double getMax(){
