@@ -98,14 +98,32 @@ public class StatisticsCalculator {
         return getMax() - getMin();
     }
 
+    /**
+     * This method calls the calculateUpperQuartile method
+     * of the UpperQuartileCalculator class.
+     * @author  mahonbd
+     * @return  The upper quartile of the data
+     */
     public double getUpperQuartile(){
         return UpperQuartileCalculator.calculateUpperQuartile(data);
     }
 
+    /**
+     * This method calls the calculateLowerQuartile method
+     * of the LowerQuartileCalculator class.
+     * @author  mahonbd
+     * @return  The lower quartile of the data
+     */
     public double getLowerQuartile(){
         return LowerQuartileCalculator.calculateLowerQuartile(data);
     }
 
+    /**
+     * This method calls the calculateIQR method
+     * of the IQRCalculator class.
+     * @author  mahonbd
+     * @return  The interquartile range of the data
+     */
     public double getInterquartileRange(){
         return IQRCalculator.calculateIQR(data);
     }
