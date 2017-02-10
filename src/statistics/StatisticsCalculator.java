@@ -1,7 +1,5 @@
 package statistics;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
 import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.List;
@@ -68,24 +66,33 @@ public class StatisticsCalculator {
     }
 
     /**
-     * @author sullivan-bormannaj
-     * @return
+     * This method "calculates" the max of the data
+     * based on the fact that the list is sorted.
+     *
+     * @author  sullivan-bormannaj
+     * @return  The max of the data
      */
     public double getMax(){
         return data.get(data.size()-1);
     }
 
     /**
-     * @author sullivan-bormannaj
-     * @return
+     * This method "calculates" the min of the data
+     * based on the fact that the list is sorted.
+     *
+     * @author  sullivan-bormannaj
+     * @return  The min of the data
      */
     public double getMin(){
         return data.get(0);
     }
 
     /**
-     * @author sullivan-bormannaj
-     * @return
+     * This method calculates the range of the data
+     * from the max and min values.
+     *
+     * @author  sullivan-bormannaj
+     * @return  The range of the data
      */
     public double getRange(){
         return getMax() - getMin();
@@ -104,24 +111,32 @@ public class StatisticsCalculator {
     }
 
     /**
-     * @author sullivan-bormannaj
-     * @return
+     * This method calls the calculateMode method
+     * of the ModeCalculator class.
+     *
+     * @author  sullivan-bormannaj
+     * @return  The mode calculated by the ModeCalculator class
      */
     public List<Double> getMode(){
         return ModeCalculator.calculateMode(data);
     }
 
     /**
-     * @author sullivan-bormannaj
-     * @return
+     * This method calls the calculateStandardDeviation method of
+     * the StandardDeviationCalculator class.
+     *
+     * @author  sullivan-bormannaj
+     * @return  The Standard Deviation calculated by the StandardDeviationCalculator class
      */
     public double getStandardDeviation(){
         return StandardDeviationCalculator.calculateStandardDeviation(getMean(), data);
     }
 
     /**
-     * @author sullivan-bormannaj
-     * @return
+     * This method reads the list from a file using the ListFileReader class.
+     *
+     * @author  sullivan-bormannaj
+     * @return  The list read from the file
      */
     public static List<Double> readListFile(String filename) throws FileNotFoundException, IllegalArgumentException{
         ListFileReader reader = new ListFileReader(filename);
