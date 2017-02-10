@@ -18,10 +18,13 @@ public class ListFileReader {
         reader = new Scanner(new File(fileName));
     }
 
-    public List<Double> readFile(){
+    public List<Double> readFile() throws IllegalArgumentException{
         List<Double> numbers = new ArrayList<>();
         while(reader.hasNextDouble()){
             numbers.add(reader.nextDouble());
+        }
+        if(numbers.size() == 0 ){
+            throw new IllegalArgumentException();
         }
         return numbers;
     }
